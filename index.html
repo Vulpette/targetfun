@@ -12,7 +12,14 @@
 </div>
     <p>This is my first webpage made with Github.</p>
      <script src="at.js"></script>
- 
+  <script>
+  document.addEventListener('at-content-rendering-start', function () {
+    console.log('Target is trying to apply content...');
+  });
+  document.addEventListener('at-content-rendering-finished', function () {
+    console.log('Target has finished rendering.');
+  });
+</script>
 
 </body>
 </html>
