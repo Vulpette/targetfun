@@ -20,6 +20,22 @@
     console.log('Target has finished rendering.');
   });
 </script>
-
+    
+<style>
+  .at-hide { opacity: 0 !important; }
+</style>
+<script>
+  document.documentElement.classList.add('at-hide');
+  document.addEventListener('at-content-rendering-finished', function () {
+    console.log('Target render finished');
+    document.documentElement.classList.remove('at-hide');
+  });
+  setTimeout(function () {
+    // fallback if event doesn't fire
+    document.documentElement.classList.remove('at-hide');
+    console.warn('Target fallback timeout reached');
+  }, 3000);
+</script>
+    
 </body>
 </html>
