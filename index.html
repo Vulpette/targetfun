@@ -12,7 +12,19 @@
       <h1>Hello, Localhost!</h1>
     </div>
   </div>
-
+  
+<script>
+  adobe && adobe.target && adobe.target.getOffer({
+    mbox: 'load',
+    success: function(offer) {
+      adobe.target.applyOffer({ mbox: 'load', offer: offer });
+    },
+    error: function() {
+      console.warn('Target failed to retrieve offer.');
+    }
+  });
+</script>
+  
   <p>This is my first webpage made with Github.</p>
 
 </body>
