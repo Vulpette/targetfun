@@ -8,11 +8,26 @@
 </head>
   
 <body>
-  <div class="mbox" data-mbox="load">
-    <div id="target-headline">
+
+    <div id="target-content">
       <h1>Hello, person!</h1>
     </div>
-  </div>
+
+  <script>  // mbox
+  adobe.target.getOffer({
+    mbox: 'promo-mbox',
+    success: function(offer) {
+      adobe.target.applyOffer({
+        mbox: 'promo-mbox',
+        offer: offer
+      });
+    },
+    error: function(status, error) {
+      console.error('Error loading custom mbox:', status, error);
+    }
+  });
+</script>
+
   
   
   <p>This is my first webpage made with Github.</p>
